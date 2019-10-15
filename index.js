@@ -37,6 +37,7 @@ const getData = () => {
 					projectCards {
 						nodes {
 							id
+							label
 						}
 					}
 					repository {
@@ -92,6 +93,7 @@ const getData = () => {
 			resource.projectCards.nodes[0] &&
 			resource.projectCards.nodes[0].id) ||
 			null;
+			throw new Error(resource.projectCards.nodes[0]);
 
 		if (columns.length === 0) {
 			throw new Error(`Could not find ${column} in ${project}`);
