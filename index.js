@@ -17,6 +17,7 @@ const getData = () => {
 		payload.issue :
 		payload.pull_request;
 
+	console.log(githubData);
 	return {
 		eventName,
 		action: payload.action,
@@ -71,7 +72,7 @@ const getData = () => {
 		}`;
 
 		const {resource} = await octokit.graphql(fetchColumnQuery);
-
+		console.log(resource);
 		// All the matching projects found
 		const repoProjects = resource.repository.projects.nodes || [];
 		const orgProjects = (resource.repository.owner &&
